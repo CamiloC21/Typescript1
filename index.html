@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Series</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="my-4">TV Series List</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Channel</th>
+          <th scope="col">Seasons</th>
+        </tr>
+      </thead>
+      <tbody id="series-table">
+        
+      </tbody>
+    </table>
+  </div>
+
+  <script type="module">
+    import { series } from './scripts/data.js'; 
+
+    const tableBody = document.getElementById('series-table');
+    
+    series.forEach(serie => {
+      const row = `
+        <tr>
+          <td>${serie.id}</td>
+          <td>${serie.name}</td>
+          <td>${serie.channel}</td>
+          <td>${serie.seasons}</td>
+        </tr>
+      `;
+      tableBody.innerHTML += row;
+    });
+  </script>
+</body>
+</html>
